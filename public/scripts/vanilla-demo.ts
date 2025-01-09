@@ -1,3 +1,4 @@
+// Vanilla programming
 import { Greeting } from './greeting';
 
 // 인사말 리스트(목록) 배열
@@ -18,6 +19,11 @@ const changeButton = document.createElement('button');
 changeButton.setAttribute('type', 'button');
 changeButton.textContent = '인사말';
 
+console.group('DOM 요소 노드');
+console.dir(heading);
+console.dir(changeButton);
+console.groupEnd();
+
 // 버튼에 이벤트 바인딩
 changeButton?.addEventListener('click', handleChangeGreetMessage);
 
@@ -29,6 +35,6 @@ function handleChangeGreetMessage() {
   heading && (heading.textContent = message);
 }
 // 마운트(mount) 할 DOM 엘리먼트 노드 참조
-const app = document.getElementById('app');
+const app = document.getElementById('vanilla');
 
 app?.prepend(heading, changeButton);
