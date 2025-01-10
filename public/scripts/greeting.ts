@@ -8,3 +8,5 @@ export enum Greeting {
   IT = 'Buon giorno',
   RU = 'ДРАВСТВУЙТЕ',
 }
+
+export type GreetingKey = keyof typeof Greeting;

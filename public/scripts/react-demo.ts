@@ -3,26 +3,21 @@
 /* -------------------------------------------------------------------------- */
 import React from '../lib/react.js';
 import ReactDOM from '../lib/react-dom/client.js';
+import { Greeting } from './greeting';
 
-let heading = React.createElement('h1', {}, '안녕!');
-
-const changeButton = React.createElement('button', { type: 'button' }, '인사말');
-
-// Namespace.module
-// React.Fragment (function)
-
-// 의미 없는 <div> 대신에 <React.Fragment>를 사용
-// 의미 없는 구조는 실제 DOM에 렌더링 되지 않아요!!!
-// console.log(React.Fragment);
-
-const wrapper = React.createElement(
-  React.Fragment, // type: HTMLTagNameString(e.g: 'a', 'table', ...) / Buit-in Component
-  null,
-  heading,
-  changeButton
-);
+// 컴포넌트 추출(Extracting Components)
+import Wrapper from '../components/wrapper';
 
 const rootElement = document.getElementById('react');
 const reactDomRoot = ReactDOM.createRoot(rootElement);
 
-reactDomRoot.render(wrapper);
+const langs = Object.keys(Greeting);
+
+function render(): void {
+  const lang = langs[Math.floor(Math.random() * langs.length)];
+  const message = Greeting[lang];
+
+  reactDomRoot.render(React.createElement(Wrapper, { lang, message, render }));
+}
+
+render();
