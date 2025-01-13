@@ -15,7 +15,22 @@ function ChangeButton() {
 }
 
 function Wrapper() {
-  return React.createElement(React.Fragment, null, React.createElement(Heading), React.createElement(ChangeButton), React.createElement(Heading), React.createElement(ChangeButton), React.createElement(Heading), React.createElement(ChangeButton), React.createElement(Heading), React.createElement(ChangeButton), React.createElement(Heading), React.createElement(ChangeButton), React.createElement(Heading), React.createElement(ChangeButton));
+  return React.createElement(
+    React.Fragment,
+    null,
+    React.createElement(Heading),
+    React.createElement(ChangeButton),
+    React.createElement(Heading),
+    React.createElement(ChangeButton),
+    React.createElement(Heading),
+    React.createElement(ChangeButton),
+    React.createElement(Heading),
+    React.createElement(ChangeButton),
+    React.createElement(Heading),
+    React.createElement(ChangeButton),
+    React.createElement(Heading),
+    React.createElement(ChangeButton)
+  );
 }
 
 const rootElement = document.getElementById('react');

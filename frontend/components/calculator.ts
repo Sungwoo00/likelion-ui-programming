@@ -1,30 +1,32 @@
 import React from '../lib/react.js';
 
-// HTML = Hyper Text Markup Language
-// h = hyperscript (JavaScript Markup)
 const { createElement: h } = React;
 
 type OperationFn = (left: number, right: number) => number;
 type Operator = '+' | '-' | '*' | '/' | '**';
 
-const operations = {
-  '+': (left: number, right: number): number => left + right,
-  '-': (left: number, right: number): number => left - right,
-  '*': (left: number, right: number): number => left * right,
-  '/': (left: number, right: number): number => left / right,
-  '**': (left: number, right: number): number => left ** right,
+const operations: Record<Operator, OperationFn> = {
+  '+': (left, right) => left + right,
+  '-': (left, right) => left - right,
+  '*': (left, right) => left * right,
+  '/': (left, right) => left / right,
+  '**': (left, right) => left ** right,
 };
 
-function add({ a, b }: { a: number; b: number }): number {
-  return a + b;
-}
-
-function Calculator({ operator = '+', elements }: { elements?: [number, number]; operator: string }) {
+function Calculator({
+  elements,
+  operator = '+',
+}: {
+  elements?: [number, number];
+  operator: Operator;
+}) {
   let left = 0;
   let right = 0;
 
   if (elements) {
-    [left, right] = elements;
+    const [l, r] = elements;
+    left = l ?? left;
+    right = r ?? right;
   }
 
   const outputValue: number = operations[operator](left, right);
@@ -34,7 +36,12 @@ function Calculator({ operator = '+', elements }: { elements?: [number, number];
     {
       className: 'calculator',
     },
-    h('code', null, `${left} ${operator} ${right} = `, h('output', null, outputValue))
+    h(
+      'code',
+      null,
+      `${left} ${operator} ${right} = `,
+      h('output', null, outputValue)
+    )
   );
 }
 

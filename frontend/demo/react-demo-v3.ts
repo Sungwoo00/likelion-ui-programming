@@ -6,9 +6,18 @@ import ReactDOM from '../lib/react-dom/client.js';
 
 const heading = React.createElement('h1', {}, '안녕!');
 
-const changeButton = React.createElement('button', { type: 'button' }, '인사말');
+const changeButton = React.createElement(
+  'button',
+  { type: 'button' },
+  '인사말'
+);
 
-const wrapper = React.createElement(React.Fragment, null, heading, changeButton);
+const wrapper = React.createElement(
+  React.Fragment,
+  null,
+  heading,
+  changeButton
+);
 
 const rootElement = document.getElementById('react');
 const reactDomRoot = ReactDOM.createRoot(rootElement);
@@ -25,10 +34,19 @@ reactDomRoot.render(wrapper);
   const heading = React.createElement('h1', {}, '안녕!');
 
   // b
-  const changeButton = React.createElement('button', { type: 'button' }, '인사말');
+  const changeButton = React.createElement(
+    'button',
+    { type: 'button' },
+    '인사말'
+  );
 
   // c
-  const wrapper = React.createElement(React.Fragment, null, heading, changeButton);
+  const wrapper = React.createElement(
+    React.Fragment,
+    null,
+    heading,
+    changeButton
+  );
 }
 
 // 재사용 메커니즘 : 클래스(x) 또는 함수(v)

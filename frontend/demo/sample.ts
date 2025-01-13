@@ -1,4 +1,3 @@
-'use strict';
 // DOM API + JavaScript
 // DOM 구현 -> 사용자 인터페이스 구현
 

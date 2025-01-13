@@ -13,7 +13,12 @@ function ChangeButton() {
 }
 
 function Wrapper() {
-  return React.createElement(React.Fragment, null, React.createElement(Heading), React.createElement(ChangeButton));
+  return React.createElement(
+    React.Fragment,
+    null,
+    React.createElement(Heading),
+    React.createElement(ChangeButton)
+  );
 }
 
 const rootElement = document.getElementById('react');
@@ -34,7 +39,10 @@ add({ a: 5, b: 9 });
 // 효과적인 리액트 컴포넌트(함수)의 재사용(유용성)
 // 리액트 컴포넌트가 외부에서 [ 데이터 ]를 어떻게 전달 받아야 할까요?
 
-function HeadingDemo(props: { elementName: string; content: string }): React.ReactElement {
+function HeadingDemo(props: {
+  elementName: string;
+  content: string;
+}): React.ReactElement {
   // let elementName = 'h1';
   // let content = '안녕!';
   return React.createElement(props.elementName, null, props.content);
@@ -48,7 +56,7 @@ const element1 = React.createElement(HeadingDemo, {
 
 const element2 = React.createElement(HeadingDemo, {
   elementName: 'p',
-  content: '안녕하세요!! 오늘은 즐거운 불금이에요!',
+  content: '안녕하세요!! 오늘은 즐거운 불.금이에요!',
 });
 
 console.log(element1);

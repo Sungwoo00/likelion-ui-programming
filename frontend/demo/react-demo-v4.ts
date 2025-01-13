@@ -18,9 +18,18 @@ for (let i = 0; i < 5; ++i) {
   console.log(React.createElement(HeadingOne));
 }
 
-const changeButton = React.createElement('button', { type: 'button' }, '인사말');
+const changeButton = React.createElement(
+  'button',
+  { type: 'button' },
+  '인사말'
+);
 
-const wrapper = React.createElement(React.Fragment, null, heading, changeButton);
+const wrapper = React.createElement(
+  React.Fragment,
+  null,
+  heading,
+  changeButton
+);
 
 const rootElement = document.getElementById('react');
 const reactDomRoot = ReactDOM.createRoot(rootElement);

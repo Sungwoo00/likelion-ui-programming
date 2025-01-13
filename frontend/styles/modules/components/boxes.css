@@ -1,22 +1,21 @@
-[role='group'] {
-  padding: 20px;
+[role="group"] {
   display: flex;
+  gap: 20px;
   align-items: start;
   flex-direction: column;
-  gap: 20px;
+  padding: 20px;
 }
 
 .box {
   display: inline-flex;
-  justify-content: center;
   align-items: center;
-  border: 3px solid currentColor;
+  justify-content: center;
   padding: 20px;
+  border: 3px solid currentColor;
   color: #fff;
 
   &.box--circle {
     border-radius: 1000px;
-    padding: 50px;
   }
 
   &.box--small {
