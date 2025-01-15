@@ -13,11 +13,12 @@
   align-items: center;
   justify-content: space-between;
 
-  &[aria-disabled='true'] {
+  &[aria-disabled="true"] {
     cursor: not-allowed;
   }
 
   .Switch--label {
+    user-select: none;
     color: rgba(0 0 0 / 80%);
     font-size: 1.6rem;
   }
@@ -46,7 +47,7 @@
         transition: inherit;
       }
 
-      [aria-checked='true'] & {
+      [aria-checked="true"] & {
         background-color: var(--switch-active-fill);
 
         &::before {
@@ -60,4 +61,6 @@
       color: rgba(0 0 0 / 84%);
     }
   }
+
+
 }
