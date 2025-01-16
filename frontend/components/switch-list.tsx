@@ -1,29 +1,38 @@
 import React from '../lib/react.js';
-import type { List } from '../types/list.ts';
+import type { List, ListItem } from '../types/list.ts';
 import Switch from './switch.tsx';
 
 interface SwitchListProps {
   items: List;
 }
 
-const switchStyles = {
-  display: 'flex',
-  flexFlow: 'column',
-  gap: 12,
-};
-
 function SwitchList({ items }: SwitchListProps) {
+  const [state, setState] = React.useState(() => {
+    return items.map(({ onToggle, ...restProperties }) => ({
+      active: false,
+      ...restProperties,
+    }));
+  });
+
+  const handleToggleState = (selectedId: string) => {
+    setState(
+      state.map((item: ListItem) =>
+        selectedId === item.id
+          ? {
+              ...item,
+              active: !item.active,
+            }
+          : item
+      )
+    );
+  };
+
   return (
-    <ul className="SwitchList" style={switchStyles}>
-      {items.map((item, index) => (
-        <li key={index}>
-          <Switch
-            active={item.active}
-            disabled={item.disabled}
-            showOnOffText={item.showOnOffText}
-            onToggle={item.onToggle}
-          >
-            {item.children}
+    <ul className='SwitchList' style={switchStyles}>
+      {state.map(({ id, active, children }) => (
+        <li key={id}>
+          <Switch active={active} onToggle={() => handleToggleState(id)}>
+            {children}
           </Switch>
         </li>
       ))}
@@ -32,3 +41,11 @@ function SwitchList({ items }: SwitchListProps) {
 }
 
 export default SwitchList;
+
+const switchStyles = {
+  display: 'flex',
+  flexFlow: 'column',
+  gap: 12,
+  listStyle: 'none',
+  paddingInlineStart: 0,
+};

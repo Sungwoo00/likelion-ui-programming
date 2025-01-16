@@ -1,6 +1,7 @@
 import React from '../lib/react.js';
 import ReactDOM from '../lib/react-dom/client.js';
 import Playground from '../components/playground.tsx';
+import App from './app.tsx';
 
 // console.log('React 객체:', React);
 
@@ -20,7 +21,7 @@ if (!root) {
     // const app = <App />;
 
     <React.StrictMode>
-      <Playground />
+      <App />
     </React.StrictMode>
   );
 }
