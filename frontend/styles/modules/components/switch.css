@@ -13,7 +13,7 @@
   align-items: center;
   justify-content: space-between;
 
-  &[aria-disabled="true"] {
+  &[aria-disabled='true'] {
     cursor: not-allowed;
   }
 
@@ -34,7 +34,7 @@
       padding: var(--switch-padding);
       border-radius: var(--switch-radius);
       background-color: var(--switch-fill);
-      transition: all 0.4s ease-in-out;
+      transition: all 0.2s cubic-bezier(0.785, 0.135, 0.15, 0.86);
 
       &::before {
         content: '';
@@ -47,7 +47,7 @@
         transition: inherit;
       }
 
-      [aria-checked="true"] & {
+      [aria-checked='true'] & {
         background-color: var(--switch-active-fill);
 
         &::before {
@@ -61,6 +61,4 @@
       color: rgba(0 0 0 / 84%);
     }
   }
-
-
 }
